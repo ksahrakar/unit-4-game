@@ -1,0 +1,57 @@
+.crystalImgs{
+    width: 40px;
+    height: 40px;
+}
+.header{
+    text-align: center;
+}
+.instructions{
+    width: 80%;
+    margin:0 10% 0 10%;
+    text-align: center;
+    font-size: 18px;
+}
+.footer{
+    position: fixed;
+    bottom:0;
+    height: 35px;
+    background-color: lightsteelblue;
+    width: 100%;
+}
+.messageBox{
+    width:40%;
+    margin:10px 30% 10px 30%;
+    background-color: lightpink;
+    text-align: center;
+}
+.scoreBox{
+    width:26%;
+    margin:10px 37% 10px 37%;
+    background-color: lightsteelblue;
+    text-align: center;
+}
+.container{
+    width:85%;
+    align-content: center;
+}
+.wallet{
+    float: right;
+    background-color: rgb(219, 219, 159);
+    text-align: right;
+    color: darkolivegreen;
+    font-size: 50px;
+}
+.spent{
+    float: left;
+    background-color: rgb(219, 219, 159);
+    text-align: left;
+    color: darkolivegreen;
+    font-size: 50px;
+}
+.gemBack{
+    background-color: rgb(192, 216, 216);
+    margin:0;
+}
+.gems{
+    align-items: center;
+}
