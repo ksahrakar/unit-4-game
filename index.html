@@ -16,31 +16,29 @@
 </head>
 <body>
 <div class="header">
-    <h1>Crystal Buyer</h1>
+    <h1>Gemstone Buyer</h1>
 </div>
 <hr>
 <div class="instructions">
-    <p>You are a gem buyer in Bangkok. To leave the country with the gems you must spend exactly the amount in your wallet. Buy a crystal by clicking it. If you have cash remaining or if you overspend, you lose. Gems cost between one and twelve thai baht. The value changes from seller to seller (game to game). Good luck!</p>
+    <p>You are a gem buyer in Bangkok. To leave the country with the gems you must spend exactly the amount in your wallet. Buy a crystal by clicking it. If you have cash remaining, you will be robbed of everything; and if you overspend, you will be jailed. Gems cost between one and twelve thai baht. The value changes from seller to seller (game to game). Good luck!</p>
 </div>
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-sm wallet">
-        <p>039</p>
+        <div class="col-sm" id="walletTotal">
         </div>
         <div class="col-sm">
             <div class="container">
                 <div class="row gemBack">
-                    <div class="col gems"><img class="crystalImgs" src="assets/images/blue.png" alt="Blue Crystal"></div>
-                    <div class="col gems"><img class="crystalImgs" src="assets/images/green.png" alt="Green Crystal"></div>
+                    <div class="col gems" id="blueGem"><img class="crystalImgs" src="assets/images/blue.png" alt="Blue Crystal"></div>
+                    <div class="col gems" id="greenGem"><img class="crystalImgs" src="assets/images/green.png" alt="Green Crystal"></div>
                     <div class="w-100"></div>
-                    <div class="col gems"><img class="crystalImgs" src="assets/images/purple.png" alt="Purple Crystal"></div>
-                    <div class="col gems"><img class="crystalImgs" src="assets/images/red.png" alt="Red Crystal"></div>
+                    <div class="col gems" id="purpleGem"><img class="crystalImgs" src="assets/images/purple.png" alt="Purple Crystal"></div>
+                    <div class="col gems" id="redGem"><img class="crystalImgs" src="assets/images/red.png" alt="Red Crystal"></div>
                 </div>
             </div>
         </div>
-        <div class="col-sm spent">
-        <p>000</p>
+        <div class="col-sm" id="spent">
         </div>
     </div>
     <hr>

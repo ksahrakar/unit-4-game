@@ -34,14 +34,14 @@
     width:85%;
     align-content: center;
 }
-.wallet{
+#walletTotal{
     float: right;
     background-color: rgb(219, 219, 159);
     text-align: right;
     color: darkolivegreen;
     font-size: 50px;
 }
-.spent{
+#spent{
     float: left;
     background-color: rgb(219, 219, 159);
     text-align: left;
@@ -54,4 +54,7 @@
 }
 .gems{
     align-items: center;
+}
+.gems:hover{
+    background-color: rgb(162, 182, 182);
 }
