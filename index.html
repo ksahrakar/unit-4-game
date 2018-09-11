@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Crystal Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="assets/images/crystal.png">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
 </head>
+
 <body>
-<div class="header">
-    <h1>Gemstone Buyer</h1>
-</div>
-<hr>
-<div class="instructions">
-    <p>You are a gem buyer in Bangkok. To leave the country with the gems you must spend exactly the amount in your wallet. Buy a crystal by clicking it. If you have cash remaining, you will be robbed of everything; and if you overspend, you will be jailed. Gems cost between one and twelve thai baht. The value changes from seller to seller (game to game). Good luck!</p>
-</div>
-<hr>
-<div class="container">
-    <div class="row">
-        <div class="col-sm" id="walletTotal">
-        </div>
-        <div class="col-sm">
-            <div class="container">
-                <div class="row gemBack">
-                    <div class="col gems" id="blueGem"><img class="crystalImgs" src="assets/images/blue.png" alt="Blue Crystal"></div>
-                    <div class="col gems" id="greenGem"><img class="crystalImgs" src="assets/images/green.png" alt="Green Crystal"></div>
-                    <div class="w-100"></div>
-                    <div class="col gems" id="purpleGem"><img class="crystalImgs" src="assets/images/purple.png" alt="Purple Crystal"></div>
-                    <div class="col gems" id="redGem"><img class="crystalImgs" src="assets/images/red.png" alt="Red Crystal"></div>
+    <div class="header">
+        <h1><strong>Gemstone Buyer</strong></h1>
+    </div>
+    <hr>
+    <div class="instructions">
+    <p>You are a gem buyer in Bangkok. To leave the country with the crystals you must spend <strong style="color:red">EXACTLY</strong> the amount in your wallet (the number in the left yellow box). Click a gemstone to buy it!</p>
+            <p>If you have cash remaining, you will be robbed of everything; and if you overspend,
+            you will be jailed.</p>
+            <p>Gems cost between one and twelve thai baht. The cost changes from seller to seller (game
+            to game).<strong>Good luck!</strong></p>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" id="walletTotal">
+                <span id=walletTotalH></span>
+            </div>
+            <div class="col-sm">
+                <div class="container">
+                    <div class="row gemBack">
+                        <div class="col gems" id="blueGem"><img class="crystalImgs" src="assets/images/blue.png" alt="Blue Crystal"><span class="count" id="blueText"></span></div>
+                        <div class="col gems" id="greenGem"><img class="crystalImgs" src="assets/images/green.png" alt="Green Crystal"><span class="count" id="greenText"></span></div>
+                        <div class="w-100"></div>
+                        <div class="col gems" id="purpleGem"><img class="crystalImgs" src="assets/images/purple.png" alt="Purple Crystal"><span id="purpleText" class="count"></span></div>
+                        <div class="col gems" id="redGem"><img class="crystalImgs" src="assets/images/red.png" alt="Red Crystal"><span id="redText" class="count"></span></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm" id="spent">
+            <div class="col-sm" id="spent">
+                <span id="currentTotalH"></span>
+            </div>
         </div>
     </div>
     <hr>
-    <div class="messageBox">Messages</div>
-    <div class="scoreBox">Score:</div>
+    <div id="messageBox">Click a gem to buy it!</div>
+    <div class="scoreBox ">
+        <span id="scoreHeading">Score</span>
+        <h6>Wins:  </h6>
+        <h6>Losses:  </h6>
+    </div>              
+    
 </div>
 
-<div class="footer">
-        <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+<div class="footer ">
+        <a id="credit" href="http://www.freepik.com " title="Freepik ">Freepik</a> from <a href="https://www.flaticon.com/
+                    " title="Flaticon ">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/
+                    " title="Creative Commons BY 3.0 " target="_blank ">CC 3.0 BY</a>
+        <span id="sign" style="font-family: 'Unica One', cursive;">&copy;2018 Kamran Sahrakar</span>            
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
