@@ -17,6 +17,7 @@
     height: 35px;
     background-color: lightsteelblue;
     width: 100%;
+    font-size: 10px;
 }
 #messageBox{
     width:40%;
@@ -70,13 +71,19 @@
 #sign{
     float:right;
     margin-right: 5%;
+    font-family: 'Unica One', cursive;
+    font-size: 18px;
 }
 #credit{
     margin-left: 5%;
 }
 
-.header,.instructions,#messageBox{
+.header, .instructions, #messageBox{
     font-family: 'Amatic SC', cursive;
     font-size: 1.7em;
+    font-weight: 600;
+}
+
+#winsH, #lossesH{
     font-weight: 600;
 }
