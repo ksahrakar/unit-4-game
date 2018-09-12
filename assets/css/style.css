@@ -27,20 +27,11 @@
     font-weight: bold;
 }
 
-#restartBtn{
-    float: right;
-    width:40px;
-    height: 40px;
-    margin:10px 30% 10px 30%;
-    background-color: rgb(216, 72, 93);
-    text-align: center;;
-    border-radius: 50%;
-    border-color: black;
-}
 .scoreBox{
     width:26%;
     margin:10px 37% 10px 37%;
     background-color: lightsteelblue;
+    align-content: center;
 }
 .container{
     width:85%;
@@ -97,4 +88,12 @@
 
 #winsH, #lossesH{
     font-weight: 600;
+}
+
+#timerH{
+    float: left;
+}
+
+#bestH{
+    float: right;
 }
