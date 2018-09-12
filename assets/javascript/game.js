@@ -2,7 +2,6 @@
 var wins = 0;
 var losses = 0;
 
-
 //Inclusive the maximum and the minimum 
 function getRandomBetween(min, max) {
     min = Math.ceil(min);
@@ -20,17 +19,33 @@ $(document).ready(function() {
   
   //Assign value to each tag and initialize wallet
   function init(){
-  $("#blueGem").attr("value",getRandomBetween(1,12));
-  $("#redGem").attr("value",getRandomBetween(1,12));
-  $("#greenGem").attr("value",getRandomBetween(1,12));
-  $("#purpleGem").attr("value",getRandomBetween(1,12));
-  wallet = getRandomBetween(19,120);
-  currentSpent = 0;
-  $("#walletTotalH").text(wallet);
-  $("#currentTotalH").text(currentSpent);
+    console.log("inside init");
+    $("#blueGem").attr("value",getRandomBetween(1,12));
+    $("#redGem").attr("value",getRandomBetween(1,12));
+    $("#greenGem").attr("value",getRandomBetween(1,12));
+    $("#purpleGem").attr("value",getRandomBetween(1,12));
+    wallet = getRandomBetween(19,120);
+    currentSpent = 0;
+    $("#walletTotalH").text(wallet);
+    $("#currentTotalH").text(currentSpent);
   }
 
-  init();
+  // Check if eligible to continue to play
+  function checkit(){
+    console.log("inside checkit");
+    if (currentSpent<wallet){return;}
+    if (currentSpent==wallet){
+      $("#messageBox").text("You WIN!!");
+      wins++;
+      $("#winsH").html(wins);
+    }
+    if (currentSpent>wallet){
+      $("#messageBox").text("You overspent. IT'S JAILTIME!!");
+      losses++;
+      $("#lossesH").html(losses);
+    }
+  }
+  
 
   //Show wallet total on left
   $("#walletTotalH").text(wallet);
@@ -39,27 +54,19 @@ $(document).ready(function() {
   $("#currentTotalH").text(currentSpent);
 
   //Add gem values
-    $(".gems").on("click", function() {
-      if (currentSpent<wallet){
-        currentSpent = currentSpent + parseInt($(this).attr("value"));
-        $("#currentTotalH").text(currentSpent);
-        //$("#redText").text($(this).gem.gemBought);
-        //$("#messageBox").text("You bought a " + $(this).gem.gemColor + "gemstone");
-      } else if (currentSpent>wallet){
-        $("#messageBox").text("You overspent. JAILTIME!!");
-        losses++;
-        $("#lossesH").html(losses);
-        init();
-      } else if(!currentSpent){
-        $("#messageBox").text("SOMETHING IS TERRIBLY WRONG! THE PROGRAMMER HAS BEEN EXECUTED");
-      } else  {
-        $("#messageBox").text("You WIN!!");
-        wins++;
-        $("#winsH").html(wins);
-        init();
-      }
-    });
-  
+  $(".gems").on("click", function() {
+    console.log("Inside click");
+    if (currentSpent<wallet){
+      currentSpent = currentSpent + parseInt($(this).attr("value"));
+      $("#currentTotalH").text(currentSpent);
+      checkit();
+      return;
+    }
+  });
+
+  init();
+  console.log("outside");
+
 });
 
 
