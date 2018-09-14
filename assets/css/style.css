@@ -89,11 +89,3 @@
 #winsH, #lossesH{
     font-weight: 600;
 }
-
-#timerH{
-    float: left;
-}
-
-#bestH{
-    float: right;
-}

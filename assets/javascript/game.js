@@ -1,9 +1,8 @@
 //Global variables
 var wins = 0;
 var losses = 0;
-var bestTime = 100;
 
-//Inclusive the maximum and the minimum 
+//Random number inclusive the maximum and the minimum 
 function getRandomBetween(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -17,22 +16,10 @@ $(document).ready(function() {
   var currentSpent = 0;
   $("#winsH").html(wins);
   $("#lossesH").html(losses);
-  var gameTime = 0;
-  var calcTime = 0;
-  var startTime;
 
-  function timer(){
-    gameTime++;
-    $("#timerH").text("Timer: " + (gameTime/10).toFixed(1));
-  }
   
-  
-  //Assign value to each tag and initialize wallet
+  // Assign value to each tag and initialize wallet (after every game)
   function init(){
-    if (calcTime<=bestTime){
-      bestTime = calcTime;
-    }
-    $("#bestH").text("Best time: " + bestTime);
     $("#blueGem").attr("value",getRandomBetween(1,12));
     $("#redGem").attr("value",getRandomBetween(1,12));
     $("#greenGem").attr("value",getRandomBetween(1,12));
@@ -42,63 +29,45 @@ $(document).ready(function() {
     $("#walletTotalH").text(wallet);
     $("#currentTotalH").text(currentSpent);
     $("#messageBox").text("Click a gem to buy it!");
-    gameTime = 0;
   }
 
-  // Check if eligible to continue to play
+  // Check status of wallet and purchase total to continue to play
   function checkit(){
     if (currentSpent<wallet){return;}
     if (currentSpent===wallet){
-      clearInterval(gameTime);
-      calcTime = ((Date.now() - startTime)/1000).toFixed(2);
       $("#messageBox").text("You WIN!!");
       wins++;
       $("#winsH").html(wins);
-      if (confirm("Try again?")){
-        clearInterval(gameTime);
+      if (confirm("YOU WIN!\nTry again?")){
         setTimeout(init,1500);
         return;
-      }else{clearInterval(gameTime);return};
+      }
     }
     if (currentSpent>wallet){
       $("#messageBox").text("You overspent. IT'S JAILTIME!!");
       losses++;
       $("#lossesH").html(losses);
-      if (confirm("Try again?")){
-        clearInterval(gameTime);
+      if (confirm("YOU LOST!\nTry again?")){
         setTimeout(init,1500);
         return;
-      }else{clearInterval(gameTime);return};
+      }
     }
   }
   
-
   //Show wallet total on left
   $("#walletTotalH").text(wallet);
 
   // Show total purchase on right
   $("#currentTotalH").text(currentSpent);
 
-  // Show game timer
-  $("#timerH").text("Timer: " + (gameTime/10));
-
-  //Show best time
-  $("#bestH").text("Best time: " + bestTime);
-
-
   //Add gem values
   $(".gems").on("click", function() {
-    if (gameTime === 0){
-      gameTime = setInterval(timer,100);
-      startTime = Date.now();
-    }
-    if (currentSpent<wallet){
+      if (currentSpent<wallet){
       currentSpent = currentSpent + parseInt($(this).attr("value"));
       $("#currentTotalH").text(currentSpent);
       checkit();
       return;
     }
-    
   });
 
   init();
