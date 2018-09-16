@@ -4,12 +4,14 @@
 }
 .header{
     text-align: center;
+    color: rgb(223, 206, 206);
 }
 .instructions{
     width: 80%;
     margin:0 10% 0 10%;
     text-align: center;
     font-size: 18px;
+    color: rgb(223, 206, 206);
 }
 .footer{
     position: fixed;
@@ -88,4 +90,7 @@
 
 #winsH, #lossesH{
     font-weight: 600;
+}
+body{
+    background-image: url("../images/crystalcave.jpg");
 }
