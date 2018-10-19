@@ -1,1 +1,1 @@
-# unit-4-game
+This is a math game in which the user is a gem buyer with a random number of points in his/her wallet. 4 Gems are assigned random values and the user purchases them by clicking them. The user's goal is to spend his entire wallet balance to win. The game can be played an unlimited number of times; the program keeps track of the win/lose tally.
